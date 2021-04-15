@@ -112,7 +112,8 @@ bool isExtensionSupported(const char *extList, const char *extension)
     };
 
     int fbcount;
-    GLXFBConfig* fbc = glXChooseFBConfig(display, DefaultScreen(display), visual_attribs, &fbcount);
+    //GLXFBConfig* fbc = glXChooseFBConfig(display, DefaultScreen(display), visual_attribs, &fbcount);
+    GLXFBConfig* fbc = glXGetFBConfig(display, DefaultScreen(display), &fbcount);
     if (!fbc) {
         throw std::runtime_error("Pangolin X11: Unable to retrieve framebuffer options");
     }
